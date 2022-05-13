@@ -4,8 +4,9 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log("Good morning, Dave!");
-    
+
     $('.submitButton').on('click', addEmployeeToTable);
+    
 }
 
 function addEmployeeToTable() {
@@ -36,8 +37,9 @@ function addEmployeeToTable() {
 let totalSalary = 0;
 
 function totalSalaryEquals(){
-    let annualSalaryTwo = $('#salaryInput').val();
-        totalSalary += annualSalaryTwo;
+
+        totalSalary += $('#salaryInput').val();
         $('#totalSpan').empty();
         $('#totalSpan').append(`${totalSalary}`);
+        console.log(totalSalary);
 }
