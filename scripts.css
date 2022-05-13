@@ -33,6 +33,14 @@ h1 {
     height: 2%;
 }
 
+#headOfTable {
+    background-color: rgb(179, 177, 177);
+    width: 2em;
+    height: 2em;
+    text-align: left;
+    border-collapse: collapse;
+}
+
 #theWholeTable {
     font-family: Helvetica;
     margin: 2%;
@@ -45,12 +53,9 @@ th, td {
     border: 1px solid;
 }
 
-#headOfTable {
-    background-color: rgb(179, 177, 177);
-    width: 2em;
-    height: 2em;
-    text-align: left;
-    border-collapse: collapse;
+tfoot {
+    background-color: gray;
+    border: solid 1px;
 }
 
 /* The two elements below were taken from W3Schools */
