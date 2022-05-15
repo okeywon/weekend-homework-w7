@@ -6,24 +6,41 @@ function onReady() {
     console.log("Good morning, Dave!");
 
     $('.submitButton').on('click', addEmployeeToTable);
-    
+
+    $('#theWholeTable').on('click', '.deleteButton', deleteRowButton);
 }
 
+let companyEmployees = [];
+
+
 function addEmployeeToTable() {
-    let firstName = $('#firstNameInput').val();
-    let lastName = $('#lastNameInput').val();
-    let employeeID = $('#idInput').val();
-    let employeeTitle = $('#titleInput').val();
-    let annualSalary = $('#salaryInput').val();
-    console.log(annualSalary);
+   
+    let firstNameInput = $('#firstNameInput').val();
+    let lastNameInput = $('#lastNameInput').val();
+    let employeeIDInput = $('#idInput').val();
+    let employeeTitleInput = $('#titleInput').val();
+    let annualSalaryInput = $('#salaryInput').val();
+    console.log('Im here', annualSalaryInput);
+   
+    let newEmployeeObject = {
+        firstName: firstNameInput,
+        lastName: lastNameInput,
+        employeeID: employeeIDInput,
+        employeeTitle: employeeTitleInput,
+        annualSalary: annualSalaryInput
+    }
+    
+    companyEmployees.push(newEmployeeObject);
+
+
     $('#bodyOfTable').append(`
         <tr>
-            <td>${firstName}</td>
-            <td>${lastName}</td>
-            <td>${employeeID}</td>
-            <td>${employeeTitle}</td>
-            <td>${annualSalary}</td>
-            <td><button>Delete</button></td>
+            <td>${firstNameInput}</td>
+            <td>${lastNameInput}</td>
+            <td>${employeeIDInput}</td>
+            <td>${employeeTitleInput}</td>
+            <td>${annualSalaryInput}</td>
+            <td><button class="deleteButton">Delete</button></td>
         </tr>`);
 
     $('#firstNameInput').val('');
@@ -31,15 +48,22 @@ function addEmployeeToTable() {
     $('#idInput').val('');
     $('#titleInput').val('');
     $('#salaryInput').val('');
+
+    console.log(companyEmployees);
+
     totalSalaryEquals();
 }
 
-let totalSalary = 0;
 
 function totalSalaryEquals(){
+    let total = 0;
+    $('.rightAlignedH2').empty();
+    for (let salary of companyEmployees){
+        total += Number(salary.annualSalary);
+    }
+    $('.rightAlignedH2').append(`Total Monthly: ${total / 12}`);
+}
 
-        totalSalary += $('#salaryInput').val();
-        $('#totalSpan').empty();
-        $('#totalSpan').append(`${totalSalary}`);
-        console.log(totalSalary);
+function deleteRowButton(){
+    $(this).parents('tr').remove();
 }
