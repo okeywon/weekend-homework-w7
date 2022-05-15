@@ -12,7 +12,6 @@ function onReady() {
 
 let companyEmployees = [];
 
-
 function addEmployeeToTable() {
    
     let firstNameInput = $('#firstNameInput').val();
@@ -54,7 +53,6 @@ function addEmployeeToTable() {
     totalSalaryEquals();
 }
 
-
 function totalSalaryEquals(){
     let total = 0;
     $('.rightAlignedH2').empty();
@@ -62,6 +60,10 @@ function totalSalaryEquals(){
         total += Number(salary.annualSalary);
     }
     $('.rightAlignedH2').append(`Total Monthly: ${total / 12}`);
+
+    if((total/12) >= 20000){
+        $('.rightAlignedH2').css('background-color', 'red');
+    }
 }
 
 function deleteRowButton(){

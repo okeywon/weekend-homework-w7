@@ -8,7 +8,7 @@ Your project description goes here. What problem did you solve? How did you solv
 
     [x] Create an employee salary table that calculates monthly company cost based on annual salaries.
     [x] Inputs should be: first name, last name, ID number, job title, annual salary.
-    [ ] Create Submit button that collect the information and stores it to calculate the monthly cost. It should append in a table format to the DOM.
+    [x] Create Submit button that collect the information and stores it to calculate the monthly cost. It should append in a table format to the DOM.
     [ ] If the monthly total exceeds 20000, background color should turn red (for the montly cost only).
 
     STRETCH:
