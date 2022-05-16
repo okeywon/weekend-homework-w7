@@ -10,8 +10,13 @@ function onReady() {
     $('#theWholeTable').on('click', '.deleteButton', deleteRowButton);
 }
 
+// empty array that will be appended by user input fields
 let companyEmployees = [];
 
+// Function that takes in the values of the user inputs,
+// adds them to an object, pushes the data to the blank array above,
+// displays the user input to the DOM, clears the user inputs,
+// finally tells the salary function to run.
 function addEmployeeToTable() {
    
     let firstNameInput = $('#firstNameInput').val();
@@ -21,7 +26,7 @@ function addEmployeeToTable() {
     let annualSalaryInput = $('#salaryInput').val();
     console.log('Im here', annualSalaryInput);
    
-    let newEmployeeObject = {
+    const newEmployeeObject = {
         firstName: firstNameInput,
         lastName: lastNameInput,
         employeeID: employeeIDInput,
@@ -53,6 +58,13 @@ function addEmployeeToTable() {
     totalSalaryEquals();
 }
 
+// function that will append the monthly salar to the DOM.
+// total variable will be added to with function below.
+// empties the DOM before appending to it.
+// a for of loop that takes in each individual salary from the object array above.
+// then adds that input data as a number/integer to the total variable.
+// the total is then displayed on the DOM as a monthly salary (/12).
+// if the monthly salary is >= 20000, the background-color changes to red.
 function totalSalaryEquals(){
     let total = 0;
     $('.rightAlignedH2').empty();
@@ -66,6 +78,7 @@ function totalSalaryEquals(){
     }
 }
 
+// this function deletes a table row from the DOM.
 function deleteRowButton(){
     $(this).parents('tr').remove();
 }
