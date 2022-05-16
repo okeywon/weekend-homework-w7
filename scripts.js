@@ -71,9 +71,10 @@ function totalSalaryEquals(){
     for (let salary of companyEmployees){
         total += Number(salary.annualSalary);
     }
-    $('.rightAlignedH2').append(`Total Monthly: ${total / 12}`);
+    let monthlyTotal = (total/12).toFixed(2);
+    $('.rightAlignedH2').append(`Total Monthly: $${monthlyTotal}`);
 
-    if((total/12) >= 20000){
+    if((monthlyTotal) >= 20000){
         $('.rightAlignedH2').css('background-color', 'red');
     }
 }
